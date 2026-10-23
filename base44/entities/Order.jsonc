@@ -1,0 +1,120 @@
+{
+  "name": "Order",
+  "type": "object",
+  "properties": {
+    "order_number": {
+      "type": "string",
+      "title": "Order Number"
+    },
+    "customer_name": {
+      "type": "string",
+      "title": "Customer Name"
+    },
+    "customer_email": {
+      "type": "string",
+      "title": "Customer Email"
+    },
+    "customer_phone": {
+      "type": "string",
+      "title": "Customer Phone"
+    },
+    "items": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "product_id": {
+            "type": "string"
+          },
+          "name": {
+            "type": "string"
+          },
+          "price": {
+            "type": "number"
+          },
+          "quantity": {
+            "type": "number"
+          },
+          "size": {
+            "type": "string"
+          },
+          "image": {
+            "type": "string"
+          }
+        }
+      },
+      "title": "Items"
+    },
+    "subtotal": {
+      "type": "number",
+      "title": "Subtotal"
+    },
+    "delivery_fee": {
+      "type": "number",
+      "title": "Delivery Fee",
+      "default": 0
+    },
+    "total": {
+      "type": "number",
+      "title": "Total"
+    },
+    "fulfillment_method": {
+      "type": "string",
+      "title": "Fulfillment Method",
+      "enum": [
+        "pickup",
+        "delivery"
+      ]
+    },
+    "payment_method": {
+      "type": "string",
+      "title": "Payment Method",
+      "enum": [
+        "cash_on_pickup",
+        "cash_on_delivery",
+        "card",
+        "mpesa"
+      ]
+    },
+    "payment_status": {
+      "type": "string",
+      "title": "Payment Status",
+      "enum": [
+        "pending",
+        "paid",
+        "failed"
+      ],
+      "default": "pending"
+    },
+    "status": {
+      "type": "string",
+      "title": "Order Status",
+      "enum": [
+        "pending",
+        "processing",
+        "ready_for_pickup",
+        "out_for_delivery",
+        "completed",
+        "cancelled"
+      ],
+      "default": "pending"
+    },
+    "delivery_address": {
+      "type": "string",
+      "title": "Delivery Address"
+    },
+    "notes": {
+      "type": "string",
+      "title": "Notes"
+    }
+  },
+  "required": [
+    "order_number",
+    "customer_name",
+    "customer_phone",
+    "items",
+    "total",
+    "fulfillment_method",
+    "payment_method"
+  ]
+}
